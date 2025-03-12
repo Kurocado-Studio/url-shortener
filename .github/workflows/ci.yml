@@ -11,8 +11,6 @@ name: CI/CD Pipeline
 
 permissions:
   contents: write
-  id-token: write
-  pages: write
   pull-requests: write
 
 on:
@@ -31,14 +29,6 @@ jobs:
     needs: lint
     uses: kurocado-studio/dev-ops/.github/workflows/workflow.test.yml@main
     secrets: inherit
-
-  deploy:
-    needs: test
-    uses: kurocado-studio/dev-ops/.github/workflows/workflow.deploy.yml@main
-    with:
-      branch_name: ${{ github.ref_name }}
-    secrets:
-      fly_api_token: ${{ secrets.FLY_API_TOKEN }}
 
   release:
     needs: test

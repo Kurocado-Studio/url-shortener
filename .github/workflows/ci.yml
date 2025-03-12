@@ -1,0 +1,48 @@
+#
+# Made with ❤️ and adobo by Kurocado Studio
+# Copyright (c) 2024. All Rights Reserved.
+#
+# Learn more about Kurocado Studio: {@link https://www.kurocado.studio}
+#
+# Explore our open-source projects: {@link https://github.com/kurocado-studio}
+#
+
+name: CI/CD Pipeline
+
+permissions:
+  contents: write
+  id-token: write
+  pages: write
+  pull-requests: write
+
+on:
+  push:
+    branches:
+      - main
+      - dev
+  pull_request:
+
+jobs:
+  lint:
+    uses: kurocado-studio/dev-ops/.github/workflows/workflow.lint.yml@main
+    secrets: inherit
+
+  test:
+    needs: lint
+    uses: kurocado-studio/dev-ops/.github/workflows/workflow.test.yml@main
+    secrets: inherit
+
+  deploy:
+    needs: test
+    uses: kurocado-studio/dev-ops/.github/workflows/workflow.deploy.yml@main
+    with:
+      branch_name: ${{ github.ref_name }}
+    secrets:
+      fly_api_token: ${{ secrets.FLY_API_TOKEN }}
+
+  release:
+    needs: test
+    uses: kurocado-studio/dev-ops/.github/workflows/workflow.release.yml@main
+    secrets: inherit
+    with:
+      branch_name: ${{ github.ref_name }}

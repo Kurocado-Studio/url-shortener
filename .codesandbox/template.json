@@ -1,0 +1,15 @@
+{
+  "title": "Kurocado Studio Tailwind Remix Template",
+  "description": "The official Remix Template used by Kurocado Studio",
+  "iconUrl": "https://avatars.githubusercontent.com/u/148841069?s=200&v=4",
+  "tags": [
+    "frontend",
+    "starter",
+    "react",
+    "tailwind",
+    "remix",
+    "typescript",
+    "kurocado studio"
+  ],
+  "published": true
+}

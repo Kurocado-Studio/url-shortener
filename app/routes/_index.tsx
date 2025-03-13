@@ -22,7 +22,7 @@ import type { UrlPayload } from '../domain/types';
 
 export const meta: MetaFunction = () => {
   return [
-    { title: 'Kurocado Studio Remix starter template' },
+    { title: 'URL Shortener Demo' },
     {
       name: 'description',
       content:
@@ -58,7 +58,7 @@ export default function Index(): React.ReactNode {
   return (
     <main
       data-testid='url-shortener-route'
-      className='animate-appear w-full max-w-6xl mt-24 overflow-hidden rounded-3xl bg-white shadow-2xl'
+      className='my-[100px] mx-auto animate-appear w-full max-w-6xl mt-24 overflow-hidden rounded-3xl bg-white shadow-2xl'
     >
       <article className='p-16'>
         {/*@ts-expect-error type mismatch on Form component*/}

@@ -22,7 +22,7 @@ import type { UrlPayload } from '../domain/types';
 
 export const meta: MetaFunction = () => {
   return [
-    { title: 'URL Shortener Demo' },
+    { title: 'URL Shortener' },
     {
       name: 'description',
       content:

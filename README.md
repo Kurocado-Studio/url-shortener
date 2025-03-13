@@ -14,7 +14,7 @@ persistence concerns. Here’s how the codebase is organized:
 - **Domain Layer:** Contains types, interfaces, and pure functions to handle URL validation,
   generation of short codes, and business rules.
 - **Infrastructure Layer:** Implements the repository interface using Redis. Keys are namespaced
-  (e.g., `url:<shortCode>`) to avoid collisions.
+  (e.g., `url:<shortenedUrl>`) to avoid collisions.
 - **Presentation Layer:** Uses Remix routes and React components to provide the UI and handle
   routing/redirects.
 

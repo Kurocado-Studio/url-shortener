@@ -43,9 +43,9 @@ export function Layout({
         <title>URL Shortener Demo</title>
       </head>
       <body
-        className={`selection:bg-lime-200 selection:text-[#f52891cc] ${
+        className={`selection:bg-lime-200 selection:text-[#f52891cc] bg-cyan-50 ${
           isHydrated ? 'opacity-100' : 'opacity-0'
-        }  transition-opacity duration-300`}
+        }  transition-opacity duration-300 d-flex justify-items-center content-center`}
         data-testid='root-body-test-id'
         suppressHydrationWarning
       >

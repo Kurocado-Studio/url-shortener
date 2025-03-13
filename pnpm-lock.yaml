@@ -60,6 +60,9 @@ importers:
       '@remix-run/serve':
         specifier: ^2.16.0
         version: 2.16.0(typescript@5.8.2)
+      '@remix-run/testing':
+        specifier: ^2.16.0
+        version: 2.16.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.8.2)
       '@testing-library/jest-dom':
         specifier: ^6.6.3
         version: 6.6.3
@@ -8101,6 +8104,18 @@ snapshots:
       '@remix-run/router': 1.23.0
       react: 18.3.1
       react-router-dom: 6.30.0(react-dom@18.2.0(react@18.3.1))(react@18.3.1)
+    optionalDependencies:
+      typescript: 5.8.2
+    transitivePeerDependencies:
+      - react-dom
+
+  '@remix-run/testing@2.16.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.8.2)':
+    dependencies:
+      '@remix-run/node': 2.16.0(typescript@5.8.2)
+      '@remix-run/react': 2.16.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.8.2)
+      '@remix-run/router': 1.23.0
+      react: 18.3.1
+      react-router-dom: 6.30.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
     optionalDependencies:
       typescript: 5.8.2
     transitivePeerDependencies:

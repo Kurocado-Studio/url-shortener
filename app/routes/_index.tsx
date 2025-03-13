@@ -14,6 +14,7 @@ import type {
   MetaFunction,
 } from '@remix-run/node';
 import { Form, useActionData, useNavigation } from '@remix-run/react';
+import { get } from 'lodash-es';
 import React from 'react';
 
 import { urlService } from '../domain/service';
@@ -55,7 +56,10 @@ export default function Index(): React.ReactNode {
     : null;
 
   return (
-    <main className='animate-appear w-full max-w-6xl mt-24 overflow-hidden rounded-3xl bg-white shadow-2xl'>
+    <main
+      data-testid='url-shortener-route'
+      className='animate-appear w-full max-w-6xl mt-24 overflow-hidden rounded-3xl bg-white shadow-2xl'
+    >
       <article className='p-16'>
         {/*@ts-expect-error type mismatch on Form component*/}
         <Form method='post'>
@@ -66,6 +70,7 @@ export default function Index(): React.ReactNode {
             Enter URL to shorten
           </label>
           <input
+            role='input'
             type='url'
             name='url'
             id='url'
@@ -79,7 +84,14 @@ export default function Index(): React.ReactNode {
       {shortenedUrl && !isSubmitting ? (
         <div className='bg-gray-50 px-16 py-4'>
           <h2>Shortened URL:</h2>
-          <a href={shortenedUrl}>{shortenedUrl}</a>
+          <a
+            href={shortenedUrl}
+            aria-label={get(actionData, ['shortenedUrl'], 'shortened link')}
+            target='_blank'
+            rel='noreferrer'
+          >
+            {shortenedUrl}
+          </a>
         </div>
       ) : null}
     </main>

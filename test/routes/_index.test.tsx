@@ -38,6 +38,7 @@ describe('Index Component', () => {
     vi.restoreAllMocks();
 
     remix.useNavigation.mockReturnValue({ state: 'idle' });
+    // @ts-expect-error on unknown typed value
     remix.useActionData.mockReturnValue(null);
   });
 
@@ -57,6 +58,7 @@ describe('Index Component', () => {
   it('displays the shortened URL when action data is provided', async () => {
     const shortenedUrl = new Date().toISOString();
 
+    // @ts-expect-error on unknown typed value
     remix.useActionData.mockReturnValue({ shortenedUrl });
 
     Object.defineProperty(window, 'location', {

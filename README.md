@@ -21,7 +21,7 @@ persistence concerns. Here’s how the codebase is organized:
 **Data Model:**  
 We use a simple mapping where each URL is represented by:
 
-- A `shortCode` (which serves as the unique identifier)
+- A `shortenedUrl` (which serves as the unique identifier)
 - The `originalUrl` (the full URL provided by the user)
 
 This minimal data model is stored in a key–value store, making it efficient and easy to scale.

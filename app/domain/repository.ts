@@ -28,6 +28,7 @@ export class RedisUrlRepo implements UrlRepository {
     const key = RedisUrlRepo.appendUrl(payload.shortenedUrl);
 
     await redis.set(key, JSON.stringify(urlPayload));
+
     return urlPayload;
   };
 

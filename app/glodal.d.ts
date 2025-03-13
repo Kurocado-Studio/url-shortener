@@ -52,3 +52,11 @@ declare module '*.css' {
 
   export default content;
 }
+
+interface ImportMetaEnv {
+  readonly VITE_REDIS_URL: string;
+}
+
+interface ImportMeta {
+  readonly env: ImportMetaEnv;
+}

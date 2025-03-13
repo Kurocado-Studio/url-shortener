@@ -5,6 +5,7 @@
     "@kurocado-studio/styleguide/remix/tsconfig"
   ],
   "compilerOptions": {
+    "target": "es2017",
     "types": ["@types/react", "vitest/globals", "@testing-library/jest-dom"],
     "esModuleInterop": true,
     "skipLibCheck": true,

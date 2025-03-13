@@ -21,7 +21,7 @@ export const generateRandomString = (length: number = 6): string => {
 };
 
 export class RedisUrlRepo implements UrlRepository {
-  public static appendUrl = (url: string): string => `ulr:${url}`;
+  public static appendUrl = (url: string): string => `url:${url}`;
 
   createUrl: UrlRepository['createUrl'] = async (payload) => {
     const urlPayload = Url.create(payload);
@@ -38,8 +38,8 @@ export class RedisUrlRepo implements UrlRepository {
     const urlJson = await redis.get<string>(key);
 
     if (!urlJson) return null;
-    const parsedUrlPayload: UrlPayload = JSON.parse(urlJson);
 
+    const parsedUrlPayload: UrlPayload = JSON.parse(urlJson);
     return Url.create(parsedUrlPayload);
   };
 }

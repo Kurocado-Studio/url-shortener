@@ -38,7 +38,6 @@ describe('Index Component', () => {
     vi.restoreAllMocks();
 
     remix.useNavigation.mockReturnValue({ state: 'idle' });
-    // @ts-expect-error on unknown typed value
     remix.useActionData.mockReturnValue(null);
   });
 
@@ -58,11 +57,10 @@ describe('Index Component', () => {
   it('displays the shortened URL when action data is provided', async () => {
     const shortenedUrl = new Date().toISOString();
 
-    // @ts-expect-error on unknown typed value
     remix.useActionData.mockReturnValue({ shortenedUrl });
 
     Object.defineProperty(window, 'location', {
-      value: { origin: 'http://localhost:SOME_PORT' },
+      value: { origin: 'http://127.0.0.1' },
       writable: true,
     });
 
@@ -72,9 +70,6 @@ describe('Index Component', () => {
       name: shortenedUrl,
     });
 
-    expect(link).toHaveAttribute(
-      'href',
-      `http://localhost:SOME_PORT/${shortenedUrl}`,
-    );
+    expect(link).toHaveAttribute('href', `http://127.0.0.1/${shortenedUrl}`);
   });
 });
